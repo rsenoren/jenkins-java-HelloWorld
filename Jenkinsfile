@@ -15,12 +15,10 @@ node {
     stage('Test image') {
   
         docker.image('eshnil/simplejavaapp:latest').withRun() { c ->
+            sh 'tested'
+    }
         
     }
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
-
+  
    
 }
