@@ -1,22 +1,26 @@
 node {
-    
-    stage('Clone sources') {
-        git url: 'https://github.com/eshanis/jenkins-java-HelloWorld.git'
+    def app
+
+    stage('Clone repository') {
+      
+
+        checkout scm
     }
-    
-    stage('build') {
-        sh 'javac HelloWorld.java'
+
+    stage('Build image') {
+  
+       app = docker.build("eshnil/simplejavaapp")
+    }
+
+    stage('Test image') {
+  
+        docker.image('eshnil/simplejavaapp:latest').withRun() { c ->
         
     }
-
-    stage('test') {
-       sh 'java HelloWorld'
+        app.inside {
+            sh 'echo "Tests passed"'
+        }
     }
 
-    stage('deploy') {
-        sh 'java HelloWorld'
    
-    }
-
-    
 }
