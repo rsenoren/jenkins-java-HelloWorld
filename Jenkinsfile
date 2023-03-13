@@ -1,7 +1,7 @@
 node {
     
     stage('Clone sources') {
-        git url: 'https://github.com/eshnil2000/jenkins-java-HelloWorld.git'
+        git url: 'https://github.com/eshanis/jenkins-java-HelloWorld.git'
     }
     
     stage('build') {
