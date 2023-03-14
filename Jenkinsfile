@@ -9,12 +9,12 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("eshnil/simplejavaapp")
+       app = docker.build("laxmi/simplejavaapp")
     }
 
     stage('Test image') {
   
-        docker.image('eshnil/simplejavaapp:latest').withRun() { c ->
+        docker.image('laxmi/simplejavaapp:latest').withRun() { c ->
             sh ' echo "tested" '
     }
         
